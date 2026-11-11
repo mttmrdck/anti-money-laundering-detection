@@ -13,6 +13,21 @@ This project detects suspicious bank transactions for Anti-Money Laundering (AML
 | Member C | EDA & Evaluation Lead | XGBoost |
 | Member D | Interpretation & Report Lead | Logistic Regression + MLP |
 
+## Dataset
+
+A synthetic dataset of **5,000 transactions** across **812 accounts** (January to June 2026), about **4.1% suspicious**, generated with seed 42.
+
+| File | Contents |
+|---|---|
+| `data/raw/raw_transactions.csv` | The modelling dataset (18 columns, target `is_suspicious`) |
+| `data/raw/typology_key.csv` | Which laundering typology or look-alike produced each row |
+| `data/WIE3007_AML_Dataset.xlsx` | Excel copy of the dataset for browsing |
+| `src/generate_data.py` | Generator script; run `python src/generate_data.py` from the repo root to rebuild `data/raw/` |
+
+Column definitions, planted patterns and noise levels are in the [data card](docs/WIE3007_AML_Dataset_DataCard.pdf).
+
+> **Warning:** `typology_key.csv` is the answer key. Never use it, or the `typology` column, as a model feature. Use it only for analysis after modelling, such as checking which typologies a model misses.
+
 ## Folder structure
 
 ```
